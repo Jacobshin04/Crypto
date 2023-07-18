@@ -5,24 +5,26 @@
 
 using namespace std;
 
-void Start();
-/*Linear();
+void Start(); //starting fuction
+/*Linear();   //planing to make them as seperate class instead of functions
 Vigenere();
 AutoKey();
 Hill();
 Verman();
 Rsa(); */
-bool Select_Encypt();
 
 
 int main()
 {
 	Start();
-}
+} //end of "main"
 
 void Start()
 {
+	// intializing user's choice
 	int menu = -1;
+
+	//list of Ciphers
 	enum Cipher {CAESER, LINEAR, VIGENERE, AUTOKEY, HILL, VERMAN, RSA, EXIT};
 
 	//prompting the user to pick the Cipher
@@ -36,15 +38,23 @@ void Start()
 	cout << "6. RSA Crypto System" << endl;
 	cout << "7. exit" << endl;
 	cout << "(Enter a number): ";
+
+	//boolean to determine repeating the switch statement
 	bool repeat = false;
 	do
 	{
+		//get number from the user
 		cin >> menu;
 		
 		switch(menu)
 		{
+			//num 0
 			case CAESER:{
+			
+				//initializing the Caeser Class object
 				Caeser caeser1;	
+
+				//go back to the starting menu again
 				Start();
 			}
 				break;
@@ -74,14 +84,16 @@ void Start()
 			break;	
 			*/
 
+			//num 7 -> program terminates
 			case EXIT:
 			break;
-			
+
+			//prompting the user to enter the number again
 			default:
 				cout << "Enter a number again: ";
 				repeat = true;
 				break;
 		}
-	} while(repeat == true);
+	} while(repeat == true); //iterates until user inputs a appropriate number
 
-}
+} //end of "Start"
