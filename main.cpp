@@ -50,14 +50,13 @@ void Start()
 		{
 			//num 0
 			case CAESER:{
-			
 				//initializing the Caeser Class object
 				Caeser caeser1;	
 
 				//go back to the starting menu again
 				Start();
 			}
-				break;
+			break;
 
 		/*	case LINEAR:
 			Linear();
