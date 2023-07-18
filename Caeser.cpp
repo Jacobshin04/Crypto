@@ -28,8 +28,8 @@ bool Caeser::Select_Encrypt()
 		 << "1. Decrypt Caeser Cipher" << endl;
 		 
 	do{
-	cout << "Enter a number: ";
-	cin >> userNum;
+		cout << "Enter a number: ";
+		cin >> userNum;
 	} while ((userNum != 0) and (userNum != 1)); //choosing between 0 and 1
 
 	//return Encrypt -> True, Decrypt -> false
@@ -51,7 +51,6 @@ void Caeser::Encrypt_Caesar()
 	
 	for(int i = 0; i < static_cast<int>(original.length()); ++i)
 	{	
-
 		//we don't encrypt spacebar
 		if(original[i] == ' ')
 		{
@@ -59,11 +58,9 @@ void Caeser::Encrypt_Caesar()
 		}
 		else
 		{
-
-		//C_i = P_i +3 (converted to only lower case)
-		result += Ascii(Alpha(tolower(original[i] + 3)) % 26);
-		}
-		
+			//C_i = P_i +3 (converted to only lower case)
+			result += Ascii(Alpha(tolower(original[i] + 3)) % 26);
+		}		
 	}
 
 	//display Encrypted message
@@ -86,15 +83,13 @@ void Caeser::Decrypt_Caesar()
 	
 	for(int i = 0; i < static_cast<int>(original.length()); ++i)
 	{	
-	
 		//we don't decrypt spacebar
 		if(original[i] == ' ')
 		{
 			result += ' ';
 		}
 		else
-		{
-		
+		{		
 			//C_i = P_i +3
 			result += Ascii((Alpha(original[i] - 3) + 26) % 26);
 		}
