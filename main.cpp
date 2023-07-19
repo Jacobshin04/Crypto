@@ -1,7 +1,9 @@
 #include <iostream>
-#include <vector>
 #include <string>
-#include "Caeser.h"
+#include <cstdlib>
+#include <limits>
+#include "Caesar.h"
+#include "Linear.h"
 
 using namespace std;
 
@@ -25,9 +27,11 @@ void Start()
 	int menu = -1;
 
 	//list of Ciphers
-	enum Cipher {CAESER, LINEAR, VIGENERE, AUTOKEY, HILL, VERMAN, RSA, EXIT};
+	enum Cipher {CAESAR, LINEAR, VIGENERE, AUTOKEY, HILL, VERMAN, RSA, EXIT};
 
 	//prompting the user to pick the Cipher
+	system("clear");
+
 	cout << "Choose the menu" <<  endl;
 	cout << "0. Caeser Cipher" << endl;
 	cout << "1. Linear Cipher" << endl;
@@ -37,31 +41,32 @@ void Start()
 	cout << "5. Verman Cipher" << endl;
 	cout << "6. RSA Crypto System" << endl;
 	cout << "7. exit" << endl;
-	cout << "(Enter a number): ";
+
 
 	//boolean to determine repeating the switch statement
 	bool repeat = false;
 	do
 	{
 		//get number from the user
+		cout << "Enter a Number: ";
 		cin >> menu;
-		
+
 		switch(menu)
 		{
 			//num 0
-			case CAESER:{
-				//initializing the Caeser Class object
-				Caeser caeser1;	
-
-				//go back to the starting menu again
-				Start();
+			case CAESAR:{
+				//initializing the Caesar Class object
+				Caesar caesar1;	
 			}
 			break;
 
-		/*	case LINEAR:
-			Linear();
+			//num 1
+			case LINEAR:{
+				//initializing the Linear Class object
+				Linear linear1;	
+			}
 			break;
-
+/*
 			case VIGENERE:
 			Vigenere();
 			break;
@@ -85,6 +90,7 @@ void Start()
 
 			//num 7 -> program terminates
 			case EXIT:
+			exit(EXIT_SUCCESS);
 			break;
 
 			//prompting the user to enter the number again
@@ -95,4 +101,7 @@ void Start()
 		}
 	} while(repeat == true); //iterates until user inputs a appropriate number
 
+	//go back to the starting menu again	
+	Start();
+	
 } //end of "Start"
