@@ -36,6 +36,7 @@ bool Caesar::Select_Encrypt()
 	} while ((userNum != 0) and (userNum != 1)); //choosing between 0 and 1
 
 	//return Encrypt -> True, Decrypt -> false
+	
 	return !(userNum);
 	
 } //end of "Select_Encrypt"

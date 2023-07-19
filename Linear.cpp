@@ -45,7 +45,7 @@ void Linear::Encrypt_Linear()
 	system("clear");
 
 	//Get a, b key
-		cout << "Linear Cipher C_i = a * P_i + b\nEnter a:";
+		cout << "Encrypting Linear Cipher C_i = a * P_i + b\nEnter a:";
 		cin >> a;
 		cout << "Enter b: ";
 		cin >> b;
