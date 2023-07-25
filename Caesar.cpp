@@ -2,7 +2,8 @@
 #include <string>
 #include <cctype>
 #include <limits>
-#include "Caesar.h"
+#include "Caesar.hpp"
+#include "Cipher.hpp"
 
 
 
@@ -14,30 +15,44 @@ Caesar::Caesar()
 {	
 	//prompt the user to choose between Encrypting and Decrypting
 	//also calls the function to Encrypt or Decrypt
-	(Select_Encrypt()? Encrypt_Caesar(): Decrypt_Caesar());
-
-	
+	Select_Encrypt();	
 } // end of "Caeser"
 
 
-bool Caesar::Select_Encrypt()
+void Caesar::Select_Encrypt()
 {	
 	//User choosing Encrypt or Decrypt
 	int userNum;
 	system("clear");
-	cout << "0. Encrypt Caeser Cipher" << endl
-		 << "1. Decrypt Caeser Cipher" << endl;
+	cout << "0. Encrypt Caeser Cipher" << endl << endl
+		 << "1. Decrypt Caeser Cipher" << endl << endl
+		 << "2. Go back to menu" << endl;
 		 
 	do{
 		cout << "Enter a number: ";	
 		cin.clear();
 		cin.ignore(std::numeric_limits<int>::max(), '\n');
 		cin >> userNum;
-	} while ((userNum != 0) and (userNum != 1)); //choosing between 0 and 1
+	} while ((userNum != 0) and (userNum != 1) and (userNum != 2)); //choosing between 0, 1, 2
 
-	//return Encrypt -> True, Decrypt -> false
-	
-	return !(userNum);
+	//Encrypt with Caesar Cipher
+	if(userNum == 0)
+	{
+		Encrypt_Caesar();
+	}
+
+	//Decrypt with Caesar Cipher
+	else if(userNum == 1)
+	{
+		Decrypt_Caesar();
+	}
+
+	//Go back to menu
+	else
+	{
+		Cipher c1;
+		c1.Start();
+	}
 	
 } //end of "Select_Encrypt"
 
@@ -46,7 +61,7 @@ void Caesar::Encrypt_Caesar()
 	system("clear");
 
 	//prompt user to input the message
-	cout <<  "Enter a message you want to Encrypt (English): ";
+	cout <<  "Caesar Cipher\nEnter a message you want to Encrypt (English): ";
 	cin.ignore();
 	getline(cin, original);
 
@@ -83,7 +98,7 @@ void Caesar::Decrypt_Caesar()
 	system("clear");
 
 	//prompt user to input the Encrypted message
-	cout <<  "Enter a message you want to Decrypt(English): ";
+	cout <<  "Caesar Cipher\nEnter a message you want to Decrypt(English): ";
 	cin.ignore();
 	getline(cin, original);
 
@@ -117,7 +132,7 @@ void Caesar::Decrypt_Caesar()
 bool Caesar::again()
 {
 	char response; 
-	cout << "Do you want to do it again?(y/n): ";
+	cout << "\nDo you want to do it again?(y/n): ";
 	cin >> response;
 	return (tolower(response) == 'y');
 }
