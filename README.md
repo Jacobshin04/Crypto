@@ -10,6 +10,8 @@ This program encrypts and decrypts messages using three different cryptographic 
 
 It was developed in a **Linux Ubuntu** environment using **C++**.  
 
+<br>
+
 ## 🔹 Features  
 - Select from three cipher methods: **Caesar Cipher, Linear Cipher, or RSA**  
 - Support for key discovery in **Linear Cipher**
@@ -26,15 +28,20 @@ It was developed in a **Linux Ubuntu** environment using **C++**.
 ### 1️⃣ **Caesar Cipher**  
 A simple shift cipher where each letter is shifted by a fixed number of places.  
 
+
 #### **Encryption Formula:**  
 Encrypted Letter = (Original Letter + 3) mod 26
 
+<br>
 
 #### **Example:**  
-Input: hello my name is Jacob
+Input: hello my name is Jacob 
+
 Output: khoor pb qqph lv mdfre
 
 ![image](https://github.com/user-attachments/assets/69af193e-6c5f-4a59-b2e7-8f646c397bbc)
+
+<br>
 
 
 #### **Decryption:**  
@@ -52,13 +59,18 @@ Encrypted Letter = (a * Original Letter + b) mod 26
 
 Where **a** must be relatively prime to 26.
 
+<br>
+
 #### **Example:**  
 a = 21, b = 23
+
 Input: nice to meet you
+
 Output: kjnd gf pddg hfb
 
 ![image](https://github.com/user-attachments/assets/87fb7d7b-6033-499d-b857-fc061127c793)
 
+<br>
 
 
 #### **Decryption Options:**  
@@ -68,13 +80,16 @@ Output: kjnd gf pddg hfb
 
 #### **Example 1 (Decrypt with a, b key):**  
 Encrypted Message: kjnd gf pddg hfb
+
 input keys: a = 21, b = 23
+
 Original Message: nice to meet you
 
 ![image](https://github.com/user-attachments/assets/5bcef269-5da8-4842-93f3-f61b35c5a901)
 
 #### **Example 2 (Decrypt without a, b key):**  
 Encrypted Message: kjnd gf pddg hfb
+
 results: all 311 combinations
 
 ![image](https://github.com/user-attachments/assets/54eb35a5-41e7-4dfc-8895-01c71878fea7)
@@ -82,7 +97,9 @@ results: all 311 combinations
 
 #### **Example 3 (Finding a, b key):** 
 Original Message: nice to meet you
+
 Encrypted Message: kjnd gf pddg hfb
+
 output keys: a = 21, b = 23
 
 ![image](https://github.com/user-attachments/assets/c438d801-0c1d-46b1-8397-45f51cb7dc33)
@@ -106,25 +123,51 @@ An asymmetric encryption method that uses **public and private keys** for secure
 Encrypted Message = (Original Message ^ e) mod n
 #### **Decryption Formula:**  
 Original Message = (Encrypted Message ^ d) mod n
+
+<br>
+
 #### **Example (Encrypting & Decrypting with RSA):**  
+##### **Encryption**
 Input: berkeley
-Original int: 2505120511180502
+
+The program converts string into Original int: 2505120511180502
+
+<br>
+
 Encryption Result:
+
 Message: 666434558223740174
+
 Public Key e: 19
+
 Public Key n: 1000000610000092769
+
 Private Key d: 631579331368479259
+
 ![image](https://github.com/user-attachments/assets/0faf3372-1c3d-4d52-9118-fdf5a1be2d8e)
+
+<br>
+
+##### **Decryption**
 Decryption Result:
+
 Decrypted int: 2505120511180502
+
 Decrypted Message: berkeley
+
 ![image](https://github.com/user-attachments/assets/b4999bba-fc2b-4234-9abc-d5aa2cffab56)
+
+<br>
+
 #### **Limitations:**  
 - Each English letter requires **two digits** (e.g., `z → 26`).  
 - The encryption process is **limited by the size of public key `n`**, making it difficult to encrypt long messages due to **integer overflow** in C++.  
-🔹 **(Now Updated!) Future Improvement:** Exploring **large number handling** in C++ and optimizing **modular arithmetic with exponentiation**.  
+🔹 **(Now Updated!) Future Improvement:** Exploring **large number handling** in C++ and optimizing **modular arithmetic with exponentiation**.
+
+<br>
+
 ---
-#### **(Update!) Improvements:**  
+#### **(Updates!) Improvements:**  
 ✅ **Increased encryption capacity (1 → 9 letters) using Boost Multiprecision (`cpp_int`)**  
 ✅ **Reduced decryption time from hours → seconds by optimizing modular exponentiation**  
 ---
