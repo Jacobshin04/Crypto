@@ -17,12 +17,20 @@ int main()
 	int conv_prime;
 	int rand_index1;
 	int rand_index2;
+<<<<<<< HEAD
 	int p;
 	int q;
 	int e;
 	int phi_n;
 	int n;
 	
+=======
+	int p; //prime 1
+	int q; //prime 2
+	int n; //product of p and q
+	int phi_n;
+	int e; //reltiely prime to p and q
+>>>>>>> origin/main
 	tuple <int, int, int> t;
 	//all vars
 	infile.open("primes.txt");
@@ -39,6 +47,7 @@ int main()
 	prime_array.push_back(conv_prime);	//assigning primes to vector array
 	}
 	srand(time(NULL));
+<<<<<<< HEAD
 
 	do
 	{
@@ -53,12 +62,31 @@ int main()
 	phi_n = (p-1) * (q-1); 
 
 	srand(time(0));
+=======
+	do
+	{
+    rand_index1 = rand() % 190;
+    p = prime_array[rand_index1]; //found first prime
+
+    rand_index2 = rand() % 195 ;
+    q = prime_array[rand_index2];
+
+    } while (p == q);  
+   n = p*q;
+   phi_n = (p-1) * (q-1); 
+
+srand(time(0));
+>>>>>>> origin/main
 	do{
 		
 		e = rand() % (25-10)+10;
 		t = extended_gcd( e , phi_n);
 	}while(get<0>(t) != 1);	   
+<<<<<<< HEAD
 	cout<<e<<" "<<get<0>(t);
+=======
+cout<<e<<" "<<get<0>(t);
+>>>>>>> origin/main
 
 	return 0;
 	
